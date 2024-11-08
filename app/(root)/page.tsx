@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
@@ -14,7 +15,12 @@ const questions = [
       { _id: "1", name: "React" },
       { _id: "2", name: "Javascript" },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image:
+        "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
+    },
     upvotes: 10,
     answers: 5,
     views: 100,
@@ -29,7 +35,12 @@ const questions = [
       { _id: "8", name: "Next.js" },
       { _id: "2", name: "Javascript" },
     ],
-    author: { _id: "2", name: "Jane Smith" },
+    author: {
+      _id: "2",
+      name: "Jane Smith",
+      image:
+        "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
+    },
     upvotes: 22,
     answers: 10,
     views: 250,
@@ -44,7 +55,12 @@ const questions = [
       { _id: "9", name: "Tailwind CSS" },
       { _id: "10", name: "Bootstrap" },
     ],
-    author: { _id: "3", name: "Alice Johnson" },
+    author: {
+      _id: "3",
+      name: "Alice Johnson",
+      image:
+        "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
+    },
     upvotes: 17,
     answers: 8,
     views: 220,
@@ -59,7 +75,12 @@ const questions = [
       { _id: "11", name: "Vue.js" },
       { _id: "12", name: "Vuex" },
     ],
-    author: { _id: "4", name: "Bob Brown" },
+    author: {
+      _id: "4",
+      name: "Bob Brown",
+      image:
+        "https://png.pngtree.com/png-clipart/20190924/original/pngtree-vector-user-young-boy-avatar-icon-png-image_4827810.jpg",
+    },
     upvotes: 13,
     answers: 6,
     views: 180,
@@ -75,7 +96,12 @@ const questions = [
       { _id: "13", name: "SSR" },
       { _id: "14", name: "SSG" },
     ],
-    author: { _id: "5", name: "Sara Lee" },
+    author: {
+      _id: "5",
+      name: "Sara Lee",
+      image:
+        "https://png.pngtree.com/png-clipart/20190924/original/pngtree-vector-user-young-boy-avatar-icon-png-image_4827810.jpg",
+    },
     upvotes: 19,
     answers: 9,
     views: 300,
@@ -90,7 +116,12 @@ const questions = [
       { _id: "15", name: "Angular" },
       { _id: "16", name: "Animations" },
     ],
-    author: { _id: "6", name: "Tom White" },
+    author: {
+      _id: "6",
+      name: "Tom White",
+      image:
+        "https://png.pngtree.com/png-clipart/20190924/original/pngtree-vector-user-young-boy-avatar-icon-png-image_4827810.jpg",
+    },
     upvotes: 14,
     answers: 5,
     views: 190,
@@ -134,7 +165,7 @@ const Home = async ({ searchParams }: SearchParams) => {
       <HomeFilter />
       <div className="mt-10 flex w-full flex-col gap-6">
         {filteredQuestions.map((question) => (
-          <h1 key={question._id}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
